@@ -116,48 +116,104 @@
 
   const renderRoomSummary = () => {
     const target = byId("room-summary");
-    data.roomDetail.summary.forEach((item) => {
-      const row = create("div", "summary-row");
-      row.append(create("span", "label", item.label));
-      row.append(create("strong", "", item.value));
-      target.append(row);
+    const paired = create("div", "summary-pair");
+    data.roomDetail.summary.slice(0, 2).forEach((item) => {
+      paired.append(renderSummaryItem(item));
+    });
+    target.append(paired);
+
+    data.roomDetail.summary.slice(2).forEach((item) => {
+      target.append(renderSummaryItem(item));
+    });
+  };
+
+  const renderSummaryItem = (item) => {
+    const row = create("div", "summary-item");
+    row.append(create("span", "label", item.label));
+    row.append(create("strong", "", item.value));
+    return row;
+  };
+
+  const updateScrollFade = (element) => {
+    const hasOverflow = element.scrollWidth > element.clientWidth + 1;
+    const canScrollLeft = hasOverflow && element.scrollLeft > 1;
+    const canScrollRight = hasOverflow && element.scrollLeft + element.clientWidth < element.scrollWidth - 1;
+    element.classList.toggle("scroll-fade--left", canScrollLeft);
+    element.classList.toggle("scroll-fade--right", canScrollRight);
+  };
+
+  const refreshScrollFades = () => {
+    document.querySelectorAll(".room-tabs, .room-tags--overlay").forEach((element) => {
+      if (!element.dataset.scrollFadeBound) {
+        element.addEventListener("scroll", () => updateScrollFade(element), { passive: true });
+        element.dataset.scrollFadeBound = "true";
+      }
+      updateScrollFade(element);
     });
   };
 
   const renderRoomCards = () => {
     const target = byId("room-cards");
-    data.roomDetail.rooms.forEach((room) => {
-      const card = create("article", "room-card");
-      const media = create("div", "room-card__media");
-      const img = create("img");
-      img.src = room.cover;
-      img.alt = `${room.name}封面`;
-      media.append(img);
-      media.append(create("span", "room-card__signal", "VR"));
+    const categories = ["全部", "2-4人", "4-6人", "6-8人", "8-10人"];
+    const tabs = create("div", "room-tabs");
+    const grid = create("div", "room-grid");
 
-      const body = create("div", "room-card__body");
-      const header = create("div", "room-card__header");
-      header.append(create("h3", "", room.name));
-      const link = create("a", "text-button", "查看VR");
-      link.href = room.vrUrl;
-      link.target = "_blank";
-      link.rel = "noopener";
-      header.append(link);
-      body.append(header);
+    const renderCategory = (category) => {
+      grid.innerHTML = "";
+      const rooms = category === "全部"
+        ? data.roomDetail.rooms
+        : data.roomDetail.rooms.filter((room) => room.people === category);
+      rooms.forEach((room) => grid.append(renderRoomCard(room)));
+      requestAnimationFrame(refreshScrollFades);
+    };
 
-      const meta = create("div", "room-meta");
-      meta.append(create("span", "", room.people));
-      meta.append(create("span", "", room.area));
-      body.append(meta);
-
-      const tags = create("div", "room-tags");
-      room.facilities.forEach((item) => tags.append(create("span", "", item)));
-      body.append(tags);
-
-      card.append(media);
-      card.append(body);
-      target.append(card);
+    categories.forEach((category, index) => {
+      const button = create("button", "room-tab", category);
+      button.type = "button";
+      button.setAttribute("aria-pressed", String(index === 0));
+      button.addEventListener("click", () => {
+        tabs.querySelectorAll(".room-tab").forEach((tab) => {
+          tab.setAttribute("aria-pressed", String(tab === button));
+        });
+        renderCategory(category);
+      });
+      tabs.append(button);
     });
+
+    target.append(tabs);
+    target.append(grid);
+    renderCategory(categories[0]);
+  };
+
+  const renderRoomCard = (room) => {
+    const card = create("article", "room-card");
+    const media = create("div", "room-card__media");
+    const img = create("img");
+    img.src = room.cover;
+    img.alt = `${room.name}封面`;
+    media.append(img);
+    const meta = create("div", "room-card__meta");
+    meta.append(create("span", "", room.people));
+    meta.append(create("span", "", `约${room.area}`));
+    media.append(meta);
+
+    const tags = create("div", "room-tags room-tags--overlay");
+    room.facilities.forEach((item) => tags.append(create("span", "", item)));
+    media.append(tags);
+
+    const body = create("div", "room-card__body");
+    const cardMain = create("div", "room-card__main");
+    cardMain.append(create("h3", "room-card__name", room.name));
+    const link = create("a", "text-button", "查看VR");
+    link.href = room.vrUrl;
+    link.target = "_blank";
+    link.rel = "noopener";
+    cardMain.append(link);
+    body.append(cardMain);
+
+    card.append(media);
+    card.append(body);
+    return card;
   };
 
   const renderAssets = () => {
@@ -211,4 +267,5 @@
   renderRoomCards();
   renderAssets();
   renderStatements();
+  window.addEventListener("resize", refreshScrollFades, { passive: true });
 })();

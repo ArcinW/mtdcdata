@@ -81,8 +81,6 @@ window.reportData = {
   ],
   roomDetail: {
     summary: [
-      { label: "包间数量", value: "9间" },
-      { label: "适用人数", value: "2-10人" },
       { label: "订金", value: "500元" },
       { label: "收费情况", value: "服务费15%" },
       { label: "可订时间", value: "周一至周日 10:30-22:00 / 17:00-21:00" },
@@ -92,7 +90,7 @@ window.reportData = {
     rooms: [
       {
         name: "臻境",
-        cover: "./assets/images/asset-environment.jpg",
+        cover: "./assets/images/rooms/zhenjing.jpg",
         vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=olQVb0",
         people: "4-6人",
         area: "21㎡",
@@ -100,7 +98,7 @@ window.reportData = {
       },
       {
         name: "臻膳",
-        cover: "./assets/images/asset-environment.jpg",
+        cover: "./assets/images/rooms/zhenshan.jpg",
         vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=mLYdGo",
         people: "2-4人",
         area: "10㎡",
@@ -108,7 +106,7 @@ window.reportData = {
       },
       {
         name: "臻飨",
-        cover: "./assets/images/asset-environment.jpg",
+        cover: "./assets/images/rooms/zhenxiang.jpg",
         vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=mzNgLm",
         people: "2-4人",
         area: "10㎡",
@@ -116,7 +114,7 @@ window.reportData = {
       },
       {
         name: "臻悦",
-        cover: "./assets/images/asset-environment.jpg",
+        cover: "./assets/images/rooms/zhenyue.jpg",
         vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=oQKgy9",
         people: "2-4人",
         area: "11㎡",
@@ -124,7 +122,7 @@ window.reportData = {
       },
       {
         name: "臻选",
-        cover: "./assets/images/asset-environment.jpg",
+        cover: "./assets/images/rooms/zhenxuan.jpg",
         vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=oRNOJo",
         people: "8-10人",
         area: "40㎡",
@@ -132,7 +130,7 @@ window.reportData = {
       },
       {
         name: "臻鲜",
-        cover: "./assets/images/asset-environment.jpg",
+        cover: "./assets/images/rooms/zhenxian.jpg",
         vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=m7VKY9",
         people: "4-6人",
         area: "15㎡",
@@ -140,7 +138,7 @@ window.reportData = {
       },
       {
         name: "臻味",
-        cover: "./assets/images/asset-environment.jpg",
+        cover: "./assets/images/rooms/zhenwei.jpg",
         vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=0aQwy0",
         people: "4-6人",
         area: "15㎡",
@@ -148,7 +146,7 @@ window.reportData = {
       },
       {
         name: "臻藏",
-        cover: "./assets/images/asset-environment.jpg",
+        cover: "./assets/images/rooms/zhencang.jpg",
         vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=9wZyD0",
         people: "2-4人",
         area: "17㎡",
@@ -156,7 +154,7 @@ window.reportData = {
       },
       {
         name: "臻品",
-        cover: "./assets/images/asset-environment.jpg",
+        cover: "./assets/images/rooms/zhenpin.jpg",
         vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=01naN9",
         people: "6-8人",
         area: "37㎡",
