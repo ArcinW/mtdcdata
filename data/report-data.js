@@ -31,26 +31,14 @@ window.reportData = {
   ],
   basicInfo: [
     {
-      group: "排队",
-      items: [
-        { name: "室内等位区", status: "pending", note: "源页面标注：餐厅等位区无" },
-        { name: "室外等位区", status: "available" }
-      ]
-    },
-    {
-      group: "停车",
-      items: [
-        { name: "地下停车场", status: "available" },
-        { name: "路边停车场", status: "available" },
-        { name: "门口独立停车场", status: "pending" }
-      ]
-    },
-    {
       group: "环境",
       items: [
         { name: "庭院景观", status: "available" },
-        { name: "城市景观", status: "available" },
-        { name: "露台/户外座位", status: "pending", note: "源页面标注：无" },
+        { name: "城市景观", status: "pending" },
+        { name: "自然水景", status: "pending" },
+        { name: "山林景观", status: "pending" },
+        { name: "高空景观", status: "pending" },
+        { name: "露台/户外座位", status: "available" },
         { name: "楼梯间/电梯", status: "available" },
         { name: "明厨亮灶", status: "pending", note: "源页面标注：暂未提供" },
         { name: "生鲜海鲜区", status: "available" },
@@ -63,11 +51,26 @@ window.reportData = {
         { name: "洗手间", status: "available", note: "餐厅内" },
         { name: "母婴室", status: "pending", note: "源页面标注：暂未提供" },
         { name: "酒水吧台", status: "available" },
-        { name: "收银台", status: "pending", note: "源页面标注：无" },
-        { name: "无障碍设施", status: "available" },
+        { name: "收银台", status: "available" },
+        { name: "无障碍设施", status: "pending" },
         { name: "儿童游乐区", status: "pending", note: "源页面标注：暂未提供" },
         { name: "吸烟区", status: "available" },
         { name: "舞台设施", status: "pending", note: "源页面标注：暂未提供" }
+      ]
+    },
+    {
+      group: "排队",
+      items: [
+        { name: "室内等位区", status: "pending", note: "源页面标注：餐厅等位区无" },
+        { name: "室外等位区", status: "pending" }
+      ]
+    },
+    {
+      group: "停车",
+      items: [
+        { name: "地下停车场", status: "available" },
+        { name: "路边停车场", status: "available" },
+        { name: "门口独立停车场", status: "pending" }
       ]
     },
     {

@@ -89,29 +89,52 @@
         { title: "已提供", status: "available" },
         { title: "暂未提供", status: "pending" }
       ].forEach((group) => {
+        const items = category.items.filter((item) => item.status === group.status);
+        if (!items.length) return;
+
         const cell = create("div", `comparison-cell comparison-cell--${group.status}`);
         cell.append(create("h4", "", group.title));
         const list = create("div", "facility-list");
-        const items = category.items.filter((item) => item.status === group.status);
+        const isVisualList = group.status === "available" && ["环境", "设施"].includes(category.group);
+        if (isVisualList) list.classList.add("facility-list--visual");
 
-        if (items.length) {
-          items.forEach((item) => {
-            const chip = create("span", `facility-chip facility-chip--${item.status}`, item.name);
-            if (item.note) chip.title = item.note;
-            list.append(chip);
-          });
-        } else {
-          list.append(create("span", "facility-empty", "暂无"));
-        }
+        items.forEach((item) => {
+          list.append(renderFacilityChip(item, category.group));
+        });
 
         cell.append(list);
         columns.append(cell);
       });
 
+      if (columns.querySelector(".facility-chip--visual")) {
+        columns.classList.add("comparison-columns--visual");
+      }
       row.append(columns);
       layout.append(row);
     });
     target.append(layout);
+  };
+
+  const renderFacilityChip = (item, categoryName) => {
+    const isVisualChip = item.status === "available" && ["环境", "设施"].includes(categoryName);
+    const chip = create(isVisualChip ? "article" : "span", `facility-chip facility-chip--${item.status}${isVisualChip ? " facility-chip--visual" : ""}`);
+    if (item.note) chip.title = item.note;
+
+    if (isVisualChip) {
+      chip.append(create("span", "facility-chip__thumb"));
+      const content = create("span", "facility-chip__content");
+      content.append(create("span", "facility-chip__text", item.name));
+      const link = create("a", "facility-chip__link", "查看VR");
+      link.href = data.restaurant.vrUrl;
+      link.target = "_blank";
+      link.rel = "noopener";
+      content.append(link);
+      chip.append(content);
+      return chip;
+    }
+
+    chip.textContent = item.name;
+    return chip;
   };
 
   const renderRoomSummary = () => {
