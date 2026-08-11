@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="海底捞·臻选店VR餐厅数据资产报告，展示采集概况、餐厅基础信息、包间详情、数据资产、VR展示与数据声明。"
+    />
+    <title>海底捞·臻选店 VR餐厅数据资产报告</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <nav class="topbar" aria-label="页面导航">
+        <a class="brand" href="#top" aria-label="返回顶部">
+          <img
+            class="brand__logo"
+            src="https://vr-image-4.realsee-cdn.cn/release/web/normal.d8c9cf23.png"
+            alt="品牌标识"
+          />
+        </a>
+        <button class="nav-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-panel" id="nav-panel">
+          <div class="topbar__links" aria-label="站内导航">
+            <a href="#top">首页</a>
+            <a href="#basic-section">基本信息</a>
+            <a href="#rooms-section">包间详情</a>
+            <a href="#asset-section">数据资产</a>
+            <a href="#statement-section">数据声明</a>
+          </div>
+          <a class="topbar__action" id="nav-vr-link" href="#" target="_blank" rel="noopener">查看VR</a>
+        </div>
+      </nav>
+
+      <header class="hero" id="top">
+        <img
+          class="hero__image"
+          src="./assets/images/asset-environment.jpg"
+          alt="海底捞·臻选店餐厅实景"
+        />
+        <div class="hero__shade"></div>
+        <section class="hero__content" aria-labelledby="report-title">
+          <div class="hero-title-block">
+            <h1 id="report-title">海底捞·臻选店</h1>
+            <p class="hero-subtitle">数据资产报告</p>
+          </div>
+          <div class="overview-panel" aria-label="首屏关键数据">
+            <div class="metric-grid" id="top-metrics"></div>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section class="section" id="basic-section" aria-labelledby="basic-title">
+          <div class="section__heading">
+            <h2 id="basic-title">餐厅基本信息</h2>
+          </div>
+          <div class="facility-status" id="basic-info"></div>
+        </section>
+
+        <section class="section section--rooms" id="rooms-section" aria-labelledby="rooms-title">
+          <div class="section__heading">
+            <h2 id="rooms-title">包间详情</h2>
+          </div>
+          <div class="room-summary" id="room-summary"></div>
+          <div class="room-grid" id="room-cards" aria-label="包间卡片"></div>
+        </section>
+
+        <section class="section" id="asset-section" aria-labelledby="assets-title">
+          <div class="section__heading">
+            <h2 id="assets-title">数据资产</h2>
+          </div>
+          <div class="asset-grid" id="asset-list"></div>
+        </section>
+
+        <section class="section" id="vr-section" aria-labelledby="vr-title">
+          <div class="section__heading">
+            <h2 id="vr-title">VR展示</h2>
+          </div>
+          <article class="vr-card">
+            <div class="vr-card__frame">
+              <iframe
+                id="vr-frame"
+                src="https://realsee.cn/PjVQpJaX"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                scrolling="no"
+                title="海底捞·臻选店VR展示"
+              ></iframe>
+            </div>
+            <div class="vr-card__body">
+              <span class="label">餐厅名称</span>
+              <h3 id="vr-restaurant-name">加载中</h3>
+              <p>嵌入式VR预览用于快速核验空间动线、包间位置与平台展示效果。</p>
+              <a class="primary-button" id="vr-link" href="#" target="_blank" rel="noopener" aria-label="新标签查看餐厅VR">新标签查看VR</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="section section--last" id="statement-section" aria-labelledby="statement-title">
+          <div class="section__heading">
+            <h2 id="statement-title">数据声明</h2>
+          </div>
+          <div class="statement-grid" id="statement-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./data/report-data.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
