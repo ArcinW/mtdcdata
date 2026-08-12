@@ -277,22 +277,42 @@
 
   const renderStatements = () => {
     const target = byId("statement-list");
-    data.statements.forEach((statement) => {
-      const card = create("article", "statement-card");
-      card.append(create("h3", "", statement.title));
-      if (statement.description) card.append(create("p", "statement-card__desc", statement.description));
-      statement.items.forEach((item) => {
-        const block = create("div", "statement-item");
-        if (item.image) {
-          const img = create("img", "statement-item__image");
-          img.src = item.image;
-          img.alt = item.name;
-          block.append(img);
-        }
-        block.append(create("strong", "", item.name));
-        block.append(create("p", "", item.note));
-        card.append(block);
+    const renderStatementItem = (item) => {
+      const block = create(item.image ? "figure" : "div", `statement-item${item.image ? " statement-item--image" : ""}`);
+      if (item.image) {
+        const img = create("img", "statement-item__image");
+        img.src = item.image;
+        img.alt = item.name;
+        block.append(img);
+      }
+      const caption = create(item.image ? "figcaption" : "div", "statement-item__caption");
+      caption.append(create("strong", "", item.name));
+      if (item.note) caption.append(create("p", "", item.note));
+      block.append(caption);
+      return block;
+    };
+
+    data.statements.forEach((statement, index) => {
+      const card = create("article", `statement-card statement-card--${index === 0 ? "source" : "usage"}`);
+      const header = create("div", "statement-card__header");
+      header.append(create("h3", "", statement.title));
+      if (statement.description) header.append(create("p", "statement-card__desc", statement.description));
+      card.append(header);
+
+      const content = create("div", "statement-card__content");
+      statement.items?.forEach((item) => content.append(renderStatementItem(item)));
+      statement.groups?.forEach((group) => {
+        const groupBlock = create("section", "statement-group");
+        const groupHeader = create("div", "statement-group__header");
+        groupHeader.append(create("h4", "", group.title));
+        groupHeader.append(create("span", "statement-group__count", `${group.items.length}张截图`));
+        groupBlock.append(groupHeader);
+        const groupGrid = create("div", "statement-group__grid");
+        group.items.forEach((item) => groupGrid.append(renderStatementItem(item)));
+        groupBlock.append(groupGrid);
+        content.append(groupBlock);
       });
+      card.append(content);
       target.append(card);
     });
   };

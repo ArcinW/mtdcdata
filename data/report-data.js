@@ -194,21 +194,18 @@ window.reportData = {
   statements: [
     {
       title: "数据来源",
-      description: "本报告数据来源于如视VR摄影师门店实地采集及VR空间数据理解技术解析生成。所有具体数据的真实度需由商家进行最终验证，报告仅作为参考依据。",
+      description: "本报告数据来源于如视VR摄影师实地采集及VR空间数据理解技术解析生成。所有具体数据上传前均会由商家进行最终验证，报告图片仅作为参考依据。",
       items: [
         {
-          name: "摄影师数据采集确认单（一）",
-          note: "源页面提供",
+          name: "采集服务确认单（一）",
           image: "./assets/images/statement-confirmation-1.jpg"
         },
         {
-          name: "摄影师数据采集确认单（二）",
-          note: "源页面提供",
+          name: "采集服务确认单（二）",
           image: "./assets/images/statement-confirmation-2.jpg"
         },
         {
-          name: "餐厅物品识别数据示意",
-          note: "源页面提供",
+          name: "空间数据理解技术示意",
           image: "./assets/images/statement-recognition.png"
         }
       ]
@@ -216,8 +213,25 @@ window.reportData = {
     {
       title: "使用方式",
       description: "用于平台展示、空间资产归档、包间运营管理和VR营销传播。",
-      items: [
-        { name: "美团平台位置截图", note: "待梳理，预计包含多张平台位置与展示入口截图。" }
+      groups: [
+        {
+          title: "POI页",
+          items: [
+            { name: "POI页截图（一）", image: "https://vr-image-4.realsee-cdn.cn/release/web/poi1.10e0bebe.png" },
+            { name: "POI页截图（二）", image: "https://vr-image-4.realsee-cdn.cn/release/web/use/poi2.5a129085.png" },
+            { name: "POI页截图（三）", image: "https://vr-image-4.realsee-cdn.cn/release/web/use/poi3.7c71a519.png" },
+            { name: "POI页截图（四）", image: "https://vr-image-4.realsee-cdn.cn/release/web/use/poi4.33dd516a.png" }
+          ]
+        },
+        {
+          title: "预订页",
+          items: [
+            { name: "预订页截图（一）", image: "https://vr-image-4.realsee-cdn.cn/release/web/use/yuding1.ae10643b.png" },
+            { name: "预订页截图（二）", image: "https://vr-image-4.realsee-cdn.cn/release/web/use/yuding2.9be726c0.png" },
+            { name: "预订页截图（三）", image: "https://vr-image-4.realsee-cdn.cn/release/web/use/yuding3.be05d592.png" },
+            { name: "预订页截图（四）", image: "https://vr-image-4.realsee-cdn.cn/release/web/use/yuding4.b4222468.png" }
+          ]
+        }
       ]
     }
   ]
