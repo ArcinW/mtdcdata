@@ -18,8 +18,13 @@
 
   const setupTopbarScroll = () => {
     const topbar = document.querySelector(".topbar");
+    const logo = document.querySelector(".brand__logo");
+    const logoLight = "https://vr-image-4.realsee-cdn.cn/release/web/normal.d8c9cf23.png";
+    const logoDark = "https://vr-image-4.realsee-cdn.cn/release/web/normal-black.1929bebe.png";
     const update = () => {
-      topbar.classList.toggle("topbar--scrolled", window.scrollY > 24);
+      const isScrolled = window.scrollY > 24;
+      topbar.classList.toggle("topbar--scrolled", isScrolled);
+      if (logo) logo.src = isScrolled ? logoDark : logoLight;
     };
 
     update();
@@ -48,8 +53,6 @@
   };
 
   const renderMetrics = () => {
-    byId("vr-restaurant-name").textContent = data.restaurant.name;
-
     const metrics = byId("top-metrics");
     const heroMetrics = [
       ...data.topMetrics,

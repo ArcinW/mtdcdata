@@ -29,7 +29,7 @@
             <a href="#top">首页</a>
             <a href="#basic-section">基本信息</a>
             <a href="#rooms-section">包间详情</a>
-            <a href="#asset-section">数据资产</a>
+            <a href="#asset-section">交付明细</a>
             <a href="#statement-section">数据声明</a>
           </div>
           <a class="topbar__action" id="nav-vr-link" href="#" target="_blank" rel="noopener">查看VR</a>
@@ -70,16 +70,10 @@
           <div class="room-browser" id="room-cards" aria-label="包间卡片"></div>
         </section>
 
-        <section class="section" id="asset-section" aria-labelledby="assets-title">
-          <div class="section__heading">
-            <h2 id="assets-title">数据资产</h2>
-          </div>
-          <div class="asset-grid" id="asset-list"></div>
-        </section>
-
         <section class="section" id="vr-section" aria-labelledby="vr-title">
-          <div class="section__heading">
-            <h2 id="vr-title">VR展示</h2>
+          <div class="section__heading section__heading--inline-action">
+            <h2 id="vr-title">场景识别效果</h2>
+            <a class="section__action" id="vr-link" href="#" target="_blank" rel="noopener" aria-label="新标签全屏查看餐厅VR">全屏查看</a>
           </div>
           <article class="vr-card">
             <div class="vr-card__frame">
@@ -90,16 +84,19 @@
                 height="100%"
                 frameborder="0"
                 scrolling="no"
-                title="海底捞·臻选店VR展示"
+                allow="fullscreen; accelerometer; gyroscope; magnetometer; xr-spatial-tracking"
+                allowfullscreen
+                title="海底捞·臻选店场景识别效果"
               ></iframe>
             </div>
-            <div class="vr-card__body">
-              <span class="label">餐厅名称</span>
-              <h3 id="vr-restaurant-name">加载中</h3>
-              <p>嵌入式VR预览用于快速核验空间动线、包间位置与平台展示效果。</p>
-              <a class="primary-button" id="vr-link" href="#" target="_blank" rel="noopener" aria-label="新标签查看餐厅VR">新标签查看VR</a>
-            </div>
           </article>
+        </section>
+
+        <section class="section" id="asset-section" aria-labelledby="assets-title">
+          <div class="section__heading">
+            <h2 id="assets-title">交付明细</h2>
+          </div>
+          <div class="asset-grid" id="asset-list"></div>
         </section>
 
         <section class="section section--last" id="statement-section" aria-labelledby="statement-title">
