@@ -167,28 +167,28 @@ window.reportData = {
   },
   assets: [
     {
-      title: "空间环境照片",
-      description: "高清细节照片集，记录环境装饰、动线与设施。",
-      status: "39张",
-      image: "./assets/images/asset-environment.jpg"
+      title: "环境照片",
+      description: "高清细节照片集，记录环境装饰与设施",
+      status: "30张",
+      image: "https://vr-image-4.realsee-cdn.cn/release/web/environment.05c317b2.jpg"
     },
     {
       title: "营销海报",
-      description: "适配平台和私域传播的视觉物料。",
-      status: "待补充",
-      image: "./assets/images/restaurant-vr-preview.png"
+      description: "适用于商家运营传播的视觉设计海报",
+      status: "18张",
+      image: "https://vr-image-4.realsee-cdn.cn/release/web/poster.73b72deb.jpg"
     },
     {
       title: "VR链接",
-      description: "餐厅全景VR体验入口。",
-      status: "已提供",
-      image: "./assets/images/restaurant-vr-preview.png"
+      description: "餐厅每个区域的VR入口，链接支持上传美团点评平台",
+      status: "16个",
+      image: "https://vr-image-4.realsee-cdn.cn/release/web/link.9d6d74c9.jpg"
     },
     {
       title: "平面图",
-      description: "餐厅平面布局与空间结构图。",
-      status: "2张",
-      image: "./assets/images/asset-floorplan.png"
+      description: "餐厅平面布局与空间结构图，尺寸精确",
+      status: "1张",
+      image: "https://vr-image-4.realsee-cdn.cn/release/web/structure.9c736146.jpg"
     }
   ],
   statements: [

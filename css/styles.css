@@ -908,28 +908,59 @@ h2 {
 }
 
 .asset-card {
+  position: relative;
   overflow: hidden;
   background: #fff;
 }
 
-.asset-card__image {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+.asset-card__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
   background: var(--surface-warm);
 }
 
+.asset-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 260ms ease;
+}
+
+.asset-card__description {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  margin: 0;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(18, 21, 19, 0.08) 0%, rgba(18, 21, 19, 0.78) 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.55;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
 .asset-card__body {
-  padding: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-height: 68px;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
 }
 
-.asset-card__index {
-  color: var(--gold);
-  font-size: 12px;
-  font-weight: 900;
+.asset-card__body h3 {
+  min-width: 0;
+  margin: 0;
+  font-family: "Asset Source Han Serif", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", serif;
+  font-size: 19px;
+  line-height: 1;
 }
 
-.asset-card p,
 .statement-item p,
 .vr-card p,
 .statement-card__desc {
@@ -938,16 +969,37 @@ h2 {
   line-height: 1.65;
 }
 
-.asset-card small {
+.asset-card__count {
   display: inline-flex;
-  width: fit-content;
-  margin-top: 6px;
-  border-radius: 999px;
-  background: var(--gold-soft);
-  color: #654617;
-  font-size: 12px;
-  font-weight: 800;
-  padding: 7px 10px;
+  flex: 0 0 auto;
+  align-items: baseline;
+  justify-self: end;
+  gap: 2px;
+  color: #7a5a26;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.asset-card__count strong {
+  color: #9d6a19;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.asset-card:hover .asset-card__image,
+.asset-card:focus-visible .asset-card__image,
+.asset-card--active .asset-card__image {
+  transform: scale(1.035);
+}
+
+.asset-card:hover .asset-card__description,
+.asset-card:focus-visible .asset-card__description,
+.asset-card--active .asset-card__description {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .vr-card {
@@ -1342,6 +1394,10 @@ h2 {
   .facility-chip--visual {
     width: 100%;
     min-height: 0;
+  }
+
+  .asset-card__count strong {
+    font-size: 24px;
   }
 
   .vr-card__frame {

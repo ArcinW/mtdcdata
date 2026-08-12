@@ -241,20 +241,33 @@
 
   const renderAssets = () => {
     const target = byId("asset-list");
-    data.assets.forEach((asset, index) => {
+    data.assets.forEach((asset) => {
       const card = create("article", "asset-card");
+      card.tabIndex = 0;
       if (asset.image) {
+        const media = create("div", "asset-card__media");
         const img = create("img", "asset-card__image");
         img.src = asset.image;
         img.alt = `${asset.title}预览`;
-        card.append(img);
+        media.append(img);
+        media.append(create("p", "asset-card__description", asset.description));
+        card.append(media);
       }
       const body = create("div", "asset-card__body");
-      body.append(create("span", "asset-card__index", String(index + 1).padStart(2, "0")));
+      const statusParts = asset.status.match(/^(\d+)(.*)$/);
+      const count = create("span", "asset-card__count");
+      count.append(create("strong", "", statusParts ? statusParts[1] : asset.status));
+      if (statusParts?.[2]) count.append(create("span", "", statusParts[2]));
       body.append(create("h3", "", asset.title));
-      body.append(create("p", "", asset.description));
-      body.append(create("small", "", asset.status));
+      body.append(count);
       card.append(body);
+      card.addEventListener("click", () => {
+        if (!window.matchMedia("(hover: none)").matches) return;
+        document.querySelectorAll(".asset-card--active").forEach((activeCard) => {
+          if (activeCard !== card) activeCard.classList.remove("asset-card--active");
+        });
+        card.classList.toggle("asset-card--active");
+      });
       target.append(card);
     });
   };
