@@ -245,32 +245,31 @@
   const renderAssets = () => {
     const target = byId("asset-list");
     data.assets.forEach((asset) => {
-      const card = create("article", "asset-card");
-      card.tabIndex = 0;
-      if (asset.image) {
-        const media = create("div", "asset-card__media");
-        const img = create("img", "asset-card__image");
-        img.src = asset.image;
-        img.alt = `${asset.title}预览`;
-        media.append(img);
-        media.append(create("p", "asset-card__description", asset.description));
-        card.append(media);
-      }
+      const card = create("article", "asset-card asset-card--gallery");
+      if (asset.type) card.classList.add(`asset-card--${asset.type}`);
       const body = create("div", "asset-card__body");
+      const titleBlock = create("div", "asset-card__title");
+      titleBlock.append(create("h3", "", asset.title));
+      if (asset.description) titleBlock.append(create("p", "", asset.description));
       const statusParts = asset.status.match(/^(\d+)(.*)$/);
       const count = create("span", "asset-card__count");
       count.append(create("strong", "", statusParts ? statusParts[1] : asset.status));
       if (statusParts?.[2]) count.append(create("span", "", statusParts[2]));
-      body.append(create("h3", "", asset.title));
+      body.append(titleBlock);
       body.append(count);
       card.append(body);
-      card.addEventListener("click", () => {
-        if (!window.matchMedia("(hover: none)").matches) return;
-        document.querySelectorAll(".asset-card--active").forEach((activeCard) => {
-          if (activeCard !== card) activeCard.classList.remove("asset-card--active");
-        });
-        card.classList.toggle("asset-card--active");
+
+      const gallery = create("div", "asset-card__gallery");
+      const images = asset.images || (asset.image ? [asset.image] : []);
+      images.forEach((image, index) => {
+        const media = create("figure", "asset-card__media");
+        const img = create("img", "asset-card__image");
+        img.src = image;
+        img.alt = `${asset.title}${index + 1}`;
+        media.append(img);
+        gallery.append(media);
       });
+      card.append(gallery);
       target.append(card);
     });
   };
@@ -305,7 +304,6 @@
         const groupBlock = create("section", "statement-group");
         const groupHeader = create("div", "statement-group__header");
         groupHeader.append(create("h4", "", group.title));
-        groupHeader.append(create("span", "statement-group__count", `${group.items.length}张截图`));
         groupBlock.append(groupHeader);
         const groupGrid = create("div", "statement-group__grid");
         group.items.forEach((item) => groupGrid.append(renderStatementItem(item)));

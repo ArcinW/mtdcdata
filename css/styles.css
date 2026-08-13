@@ -967,20 +967,32 @@ h2 {
   gap: 14px;
 }
 
+.asset-grid {
+  gap: 46px;
+}
+
 .statement-grid {
   gap: 58px;
 }
 
 .asset-card {
   position: relative;
-  overflow: hidden;
-  background: #fff;
+  display: grid;
+  gap: 18px;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .asset-card__media {
   position: relative;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
+  margin: 0;
+  border-radius: var(--radius);
   background: var(--surface-warm);
 }
 
@@ -991,30 +1003,24 @@ h2 {
   transition: transform 260ms ease;
 }
 
-.asset-card__description {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  align-content: end;
-  margin: 0;
-  padding: 18px;
-  background: linear-gradient(180deg, rgba(18, 21, 19, 0.08) 0%, rgba(18, 21, 19, 0.78) 100%);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.55;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 220ms ease, transform 220ms ease;
+.asset-card--poster .asset-card__media,
+.asset-card--floorplan .asset-card__media {
+  aspect-ratio: auto;
+  background: transparent;
+}
+
+.asset-card--poster .asset-card__image,
+.asset-card--floorplan .asset-card__image {
+  height: auto;
+  object-fit: contain;
 }
 
 .asset-card__body {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  min-height: 68px;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
+  align-items: end;
+  gap: 16px;
+  padding: 0;
 }
 
 .asset-card__body h3 {
@@ -1023,6 +1029,25 @@ h2 {
   font-family: "Asset Source Han Serif", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", serif;
   font-size: 19px;
   line-height: 1;
+}
+
+.asset-card__title {
+  display: grid;
+  gap: 8px;
+}
+
+.asset-card__title p {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.asset-card__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .statement-item p,
@@ -1053,17 +1078,8 @@ h2 {
   line-height: 0.9;
 }
 
-.asset-card:hover .asset-card__image,
-.asset-card:focus-visible .asset-card__image,
-.asset-card--active .asset-card__image {
+.asset-card__media:hover .asset-card__image {
   transform: scale(1.035);
-}
-
-.asset-card:hover .asset-card__description,
-.asset-card:focus-visible .asset-card__description,
-.asset-card--active .asset-card__description {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .vr-card {
@@ -1244,7 +1260,9 @@ h2 {
 
 .statement-group .statement-item__image {
   aspect-ratio: 9 / 16;
+  border-radius: 22px;
   object-fit: contain;
+  overflow: hidden;
 }
 
 .statement-item__caption {
@@ -1336,6 +1354,10 @@ h2 {
   }
 
   .asset-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .asset-card__gallery {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
@@ -1376,6 +1398,10 @@ h2 {
 
   .facility-list--visual {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .asset-card__gallery {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 
@@ -1649,6 +1675,15 @@ h2 {
 
   .asset-card__count strong {
     font-size: 24px;
+  }
+
+  .asset-card__body {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .asset-card__count {
+    justify-self: start;
   }
 
   .vr-card__frame {
