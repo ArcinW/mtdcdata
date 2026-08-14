@@ -5,7 +5,8 @@ window.reportData = {
     collectionArea: "1146.2㎡",
     privateRoomCount: "12",
     maxCapacity: "12-14人",
-    vrUrl: "https://realsee.cn/PjVQpJaX"
+    vrUrl: "https://realsee.cn/PjVQpJaX",
+    navVrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=058WJ2&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147931775&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814160328311&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1"
   },
   topMetrics: [
     { label: "采集日期", value: "2026年7月7日" },
@@ -49,9 +50,24 @@ window.reportData = {
         { name: "自然水景", status: "pending" },
         { name: "山林景观", status: "pending" },
         { name: "高空景观", status: "available" },
-        { name: "露台/户外座位", status: "available" },
-        { name: "楼梯间/电梯", status: "available" },
-        { name: "明厨亮灶", status: "available" },
+        {
+          name: "露台/户外座位",
+          status: "available",
+          vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=02MzDz&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147847769&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162700170&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+          cover: "https://vr-image-4.realsee-cdn.cn/release/screenshot/auto3d-light-NKyRZbW0A0e2xb3G/ef174b7a584bc7a5fb372d8050e6aa64/1783384162_78/pc0_kzjyRO7dD.jpg?imageMogr2/thumbnail/200x/quality/70/%7Cwatermark/1/image_key/L3JlbGVhc2Uvd2F0ZXJtYXJrL2xpbmstc2hhcmUtY292ZXIuMjAweDIwMC5wbmc=/gravity/center/"
+        },
+        {
+          name: "楼梯间/电梯",
+          status: "available",
+          vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=mWdVW7&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147907801&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162721402&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+          cover: "https://vr-image-4.realsee-cdn.cn/release/screenshot/auto3d-light-NKyRZbW0A0e2xb3G/ef174b7a584bc7a5fb372d8050e6aa64/1783384162_78/pc0_kzjyRO7dD.jpg?imageMogr2/thumbnail/200x/quality/70/%7Cwatermark/1/image_key/L3JlbGVhc2Uvd2F0ZXJtYXJrL2xpbmstc2hhcmUtY292ZXIuMjAweDIwMC5wbmc=/gravity/center/"
+        },
+        {
+          name: "明厨亮灶",
+          status: "available",
+          vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?shareCode=dMepXVZ2&entry=share",
+          cover: "https://vr-image-4.realsee-cdn.cn/release/screenshot/auto3d-light-NKyRZbW0A0e2xb3G/ef174b7a584bc7a5fb372d8050e6aa64/1783384162_78/pc0_kzjyRO7dD.jpg?imageMogr2/thumbnail/200x/quality/70/%7Cwatermark/1/image_key/L3JlbGVhc2Uvd2F0ZXJtYXJrL2xpbmstc2hhcmUtY292ZXIuMjAweDIwMC5wbmc=/gravity/center/"
+        },
         { name: "生鲜海鲜区", status: "pending" },
         { name: "周边卖货区", status: "available" }
       ]
@@ -59,13 +75,34 @@ window.reportData = {
     {
       group: "设施",
       items: [
-        { name: "洗手间", status: "available", note: "餐厅内" },
+        {
+          name: "洗手间",
+          status: "available",
+          note: "餐厅内",
+          vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?shareCode=wZR7rGMj&entry=share",
+          cover: "https://vr-image-4.realsee-cdn.cn/release/screenshot/auto3d-light-NKyRZbW0A0e2xb3G/ef174b7a584bc7a5fb372d8050e6aa64/1783384162_78/pc0_kzjyRO7dD.jpg?imageMogr2/thumbnail/200x/quality/70/%7Cwatermark/1/image_key/L3JlbGVhc2Uvd2F0ZXJtYXJrL2xpbmstc2hhcmUtY292ZXIuMjAweDIwMC5wbmc=/gravity/center/"
+        },
         { name: "母婴室", status: "pending", note: "源页面标注：暂未提供" },
-        { name: "酒水吧台", status: "available" },
-        { name: "收银台", status: "available" },
+        {
+          name: "酒水吧台",
+          status: "available",
+          vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?shareCode=Yg2NzQgz&entry=share",
+          cover: "https://vr-image-4.realsee-cdn.cn/release/screenshot/auto3d-light-NKyRZbW0A0e2xb3G/ef174b7a584bc7a5fb372d8050e6aa64/1783384162_78/pc0_kzjyRO7dD.jpg?imageMogr2/thumbnail/200x/quality/70/%7Cwatermark/1/image_key/L3JlbGVhc2Uvd2F0ZXJtYXJrL2xpbmstc2hhcmUtY292ZXIuMjAweDIwMC5wbmc=/gravity/center/"
+        },
+        {
+          name: "收银台",
+          status: "available",
+          vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?shareCode=9y69nRMO&entry=share",
+          cover: "https://vr-image-4.realsee-cdn.cn/release/screenshot/auto3d-light-NKyRZbW0A0e2xb3G/ef174b7a584bc7a5fb372d8050e6aa64/1783384162_78/pc0_kzjyRO7dD.jpg?imageMogr2/thumbnail/200x/quality/70/%7Cwatermark/1/image_key/L3JlbGVhc2Uvd2F0ZXJtYXJrL2xpbmstc2hhcmUtY292ZXIuMjAweDIwMC5wbmc=/gravity/center/"
+        },
         { name: "无障碍设施", status: "available" },
         { name: "儿童游乐区", status: "pending", note: "源页面标注：暂未提供" },
-        { name: "吸烟区", status: "available" },
+        {
+          name: "吸烟区",
+          status: "available",
+          vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?shareCode=XZjAelg0&entry=share",
+          cover: "https://vr-image-4.realsee-cdn.cn/release/screenshot/auto3d-light-NKyRZbW0A0e2xb3G/ef174b7a584bc7a5fb372d8050e6aa64/1783384162_78/pc0_kzjyRO7dD.jpg?imageMogr2/thumbnail/200x/quality/70/%7Cwatermark/1/image_key/L3JlbGVhc2Uvd2F0ZXJtYXJrL2xpbmstc2hhcmUtY292ZXIuMjAweDIwMC5wbmc=/gravity/center/"
+        },
         { name: "舞台设施", status: "pending", note: "源页面标注：暂未提供" }
       ]
     },
@@ -99,80 +136,105 @@ window.reportData = {
       { label: "收费情况", value: "10%服务费" },
       { label: "可订时间", value: "周一至周日 10:00-14:00 / 17:00-21:00" },
       { label: "专属服务", value: "专属服务员、分餐服务" },
-      { label: "酒水服务", value: "可自带酒水" }
+      { label: "酒水服务", value: "可自带酒水" },
+      { label: "以下服务暂未提供", value: "KTV设备、麻将机、沙发", tone: "muted" }
     ],
     rooms: [
       {
-        name: "臻境",
+        name: "大掌柜",
         cover: "./assets/images/rooms/zhenjing.jpg",
-        vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=olQVb0",
-        people: "4-6人",
-        area: "21㎡",
-        facilities: ["分菜吧台", "包间窗景"]
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=058WJ2&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147931775&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162616967&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "12-14人",
+        area: "50㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌", "桌面电动转盘"]
       },
       {
-        name: "臻膳",
+        name: "曹家三多堂",
         cover: "./assets/images/rooms/zhenshan.jpg",
-        vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=mLYdGo",
-        people: "2-4人",
-        area: "10㎡",
-        facilities: ["分菜吧台", "包间窗景"]
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=opMAa6&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147849775&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162637079&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "4-6人",
+        area: "27㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌"]
       },
       {
-        name: "臻飨",
+        name: "常家庄园",
         cover: "./assets/images/rooms/zhenxiang.jpg",
-        vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=mzNgLm",
-        people: "2-4人",
-        area: "10㎡",
-        facilities: ["分菜吧台", "包间窗景"]
-      },
-      {
-        name: "臻悦",
-        cover: "./assets/images/rooms/zhenyue.jpg",
-        vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=oQKgy9",
-        people: "2-4人",
-        area: "11㎡",
-        facilities: ["分菜吧台", "包间窗景"]
-      },
-      {
-        name: "臻选",
-        cover: "./assets/images/rooms/zhenxuan.jpg",
-        vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=oRNOJo",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=9PGJNn&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147921774&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162604700&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
         people: "8-10人",
-        area: "40㎡",
-        facilities: ["独立卫生间", "麻将机", "分菜吧台", "包间窗景", "衣帽间/衣架"]
+        area: "31㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌"]
       },
       {
-        name: "臻鲜",
-        cover: "./assets/images/rooms/zhenxian.jpg",
-        vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=m7VKY9",
-        people: "4-6人",
-        area: "15㎡",
-        facilities: ["独立卫生间", "分菜吧台"]
+        name: "乔家大院",
+        cover: "./assets/images/rooms/zhenyue.jpg",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=mdBbZx&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147939742&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162627706&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "10-12人",
+        area: "32㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌"]
       },
       {
-        name: "臻味",
-        cover: "./assets/images/rooms/zhenwei.jpg",
-        vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=0aQwy0",
-        people: "4-6人",
-        area: "15㎡",
-        facilities: ["独立卫生间", "分菜吧台"]
-      },
-      {
-        name: "臻藏",
-        cover: "./assets/images/rooms/zhencang.jpg",
-        vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=9wZyD0",
-        people: "2-4人",
-        area: "17㎡",
-        facilities: ["沙发", "分菜吧台", "衣帽间/衣架"]
-      },
-      {
-        name: "臻品",
-        cover: "./assets/images/rooms/zhenpin.jpg",
-        vrUrl: "https://mtdc.realsee.cn/Ml9kdd1B?cuscode=01naN9",
+        name: "行商欧亚",
+        cover: "./assets/images/rooms/zhenxuan.jpg",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=9yNy5V&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147889776&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162554931&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
         people: "6-8人",
-        area: "37㎡",
-        facilities: ["独立卫生间", "茶几会客", "分菜吧台", "包间窗景", "衣帽间/衣架"]
+        area: "25㎡",
+        facilities: ["有窗", "茶几会客厅", "书桌"]
+      },
+      {
+        name: "汇通天下",
+        cover: "./assets/images/rooms/zhenxian.jpg",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=oNVnN1&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147841778&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162543746&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "6-8人",
+        area: "27㎡",
+        facilities: ["有窗", "茶几会客厅", "书桌"]
+      },
+      {
+        name: "万里茶路",
+        cover: "./assets/images/rooms/zhenwei.jpg",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=93J2n8&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147847770&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162454377&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "10-12人",
+        area: "35㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌"]
+      },
+      {
+        name: "陈醋流芳",
+        cover: "./assets/images/rooms/zhencang.jpg",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=mL8kWK&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147837790&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162531357&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "6-8人",
+        area: "29㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌"]
+      },
+      {
+        name: "得造花香",
+        cover: "./assets/images/rooms/zhenpin.jpg",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=01dzN5&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147843802&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162520367&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "8-10人",
+        area: "31㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌"]
+      },
+      {
+        name: "茗盏含韵",
+        cover: "./assets/images/rooms/zhencang.jpg",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=9AZazW&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147839751&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162507967&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "6-8人",
+        area: "29㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌"]
+      },
+      {
+        name: "锦筵传家",
+        cover: "./assets/images/rooms/zhenpin.jpg",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=0KR8qv&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147869777&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162441220&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "6-8人",
+        area: "34㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌"]
+      },
+      {
+        name: "王家大院",
+        cover: "./assets/images/rooms/zhenxuan.jpg",
+        vrUrl: "https://mtdc.realsee.cn/NrmRkLMM?cuscode=oqdKeY&shopIdEncrypt=qB4r17787aa108bb95e767aa27925f7b6a15fcf57e65c5e8741fb88f2470e2293e85963706f097a1bca03e2068260de63071b81f7ec7ce791ffd0330511d3d3beeda00cb99b7dc7fvxu5&groupId=147&platform=2&enterchannel=mtapp&poiId=&poiStr=&roomId=2147871776&utm_term=AiphoneBgroupC12.63.202DweixinEG0000000000000DBB38645822340919D1A801141ACDDF2A17181244043991502020260814162425653&utm_source=appshare&utm_medium=iOSweb&utm_fromapp=wx&lch=appshare_8cda6dd00b9be2afA1",
+        people: "6-8人",
+        area: "29㎡",
+        facilities: ["独卫", "有窗", "茶几会客厅", "书桌"]
       }
     ]
   },

@@ -967,6 +967,11 @@ h2 {
   line-height: 1.55;
 }
 
+.summary-item--muted .label,
+.summary-item--muted strong {
+  color: #a8a095;
+}
+
 .room-browser {
   display: grid;
   gap: 20px;

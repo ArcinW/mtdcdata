@@ -11,9 +11,12 @@
   };
 
   const configureVrLinks = () => {
-    byId("nav-vr-link").href = data.restaurant.vrUrl;
-    byId("vr-link").href = data.restaurant.vrUrl;
-    byId("vr-frame").src = data.restaurant.vrUrl;
+    const navVrLink = byId("nav-vr-link");
+    const vrLink = byId("vr-link");
+    const vrFrame = byId("vr-frame");
+    if (navVrLink) navVrLink.href = data.restaurant.navVrUrl || data.restaurant.vrUrl;
+    if (vrLink) vrLink.href = data.restaurant.vrUrl;
+    if (vrFrame) vrFrame.src = data.restaurant.vrUrl;
   };
 
   const setupTopbarScroll = () => {
@@ -147,7 +150,11 @@
     if (item.note) chip.title = item.note;
 
     if (isVisualChip) {
-      chip.append(create("span", "facility-chip__thumb"));
+      const thumb = create("span", "facility-chip__thumb");
+      if (item.cover) {
+        thumb.style.backgroundImage = `linear-gradient(135deg, rgba(32, 35, 33, 0.12), rgba(169, 121, 50, 0.08)), url("${item.cover}")`;
+      }
+      chip.append(thumb);
       if (overlayTags.length) {
         const tags = create("div", "facility-chip__tags");
         overlayTags.forEach((tag) => tags.append(create("span", "", tag)));
@@ -156,7 +163,7 @@
       const content = create("span", "facility-chip__content");
       content.append(create("span", "facility-chip__text", item.name));
       const link = create("a", "facility-chip__link", "查看VR");
-      link.href = data.restaurant.vrUrl;
+      link.href = item.vrUrl || data.restaurant.vrUrl;
       link.target = "_blank";
       link.rel = "noopener";
       content.append(link);
@@ -182,7 +189,7 @@
   };
 
   const renderSummaryItem = (item) => {
-    const row = create("div", "summary-item");
+    const row = create("div", `summary-item${item.tone ? ` summary-item--${item.tone}` : ""}`);
     row.append(create("span", "label", item.label));
     row.append(create("strong", "", item.value));
     return row;
@@ -208,7 +215,7 @@
 
   const renderRoomCards = () => {
     const target = byId("room-cards");
-    const categories = ["全部", "2-4人", "4-6人", "6-8人", "8-10人"];
+    const categories = ["全部", "4-6人", "6-8人", "8-10人", "10-12人", "12-14人"];
     const tabs = create("div", "room-tabs");
     const grid = create("div", "room-grid");
 
