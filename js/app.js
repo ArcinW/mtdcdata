@@ -56,7 +56,7 @@
     const metrics = byId("top-metrics");
     const heroMetrics = [
       ...data.topMetrics,
-      { label: "特色服务", value: `${data.featureServices.length}项` },
+      { label: "环境设施", value: data.environmentFacilityCount || `${data.featureServices.length}项` },
       { label: "包间设施", value: `${data.roomFacilities.length}项` }
     ];
 
@@ -83,16 +83,29 @@
     target.append(facts);
 
     const visualOverview = create("div", "basic-visual-overview");
+    const visualDisplayRules = {
+      "环境": {
+        hidden: ["庭院景观", "城市景观", "高空景观", "周边卖货区"],
+        tagsByItem: {
+          "露台/户外座位": ["庭院景观", "城市景观", "高空景观"]
+        }
+      },
+      "设施": {
+        hidden: ["无障碍设施"],
+        tagsByItem: {}
+      }
+    };
     data.basicInfo
       .filter((category) => ["环境", "设施"].includes(category.group))
       .forEach((category) => {
         const section = create("section", "basic-visual-section");
         section.append(create("h3", "", category.group));
         const grid = create("div", "basic-visual-grid");
+        const displayRule = visualDisplayRules[category.group] || { hidden: [], tagsByItem: {} };
         category.items
-          .filter((item) => item.status === "available")
+          .filter((item) => item.status === "available" && !displayRule.hidden.includes(item.name))
           .forEach((item) => {
-            grid.append(renderFacilityChip(item, category.group));
+            grid.append(renderFacilityChip(item, category.group, displayRule.tagsByItem[item.name] || []));
           });
         section.append(grid);
         visualOverview.append(section);
@@ -128,13 +141,18 @@
     target.append(compactList);
   };
 
-  const renderFacilityChip = (item, categoryName) => {
+  const renderFacilityChip = (item, categoryName, overlayTags = []) => {
     const isVisualChip = item.status === "available" && ["环境", "设施"].includes(categoryName);
     const chip = create(isVisualChip ? "article" : "span", `facility-chip facility-chip--${item.status}${isVisualChip ? " facility-chip--visual" : ""}`);
     if (item.note) chip.title = item.note;
 
     if (isVisualChip) {
       chip.append(create("span", "facility-chip__thumb"));
+      if (overlayTags.length) {
+        const tags = create("div", "facility-chip__tags");
+        overlayTags.forEach((tag) => tags.append(create("span", "", tag)));
+        chip.append(tags);
+      }
       const content = create("span", "facility-chip__content");
       content.append(create("span", "facility-chip__text", item.name));
       const link = create("a", "facility-chip__link", "查看VR");
@@ -344,12 +362,14 @@
       const titleBlock = create("div", "more-data-block__title");
       titleBlock.append(create("h3", "", asset.title));
       if (asset.description) titleBlock.append(create("p", "", asset.description));
-      const statusParts = asset.status.match(/^(\d+)(.*)$/);
-      const count = create("span", "more-data-block__count");
-      count.append(create("strong", "", statusParts ? statusParts[1] : asset.status));
-      if (statusParts?.[2]) count.append(create("span", "", statusParts[2]));
       body.append(titleBlock);
-      body.append(count);
+      if (asset.status) {
+        const statusParts = asset.status.match(/^(\d+)(.*)$/);
+        const count = create("span", "more-data-block__count");
+        count.append(create("strong", "", statusParts ? statusParts[1] : asset.status));
+        if (statusParts?.[2]) count.append(create("span", "", statusParts[2]));
+        body.append(count);
+      }
       card.append(body);
 
       const gallery = create("div", `more-data-gallery more-data-gallery--${asset.type || "default"}`);
@@ -390,11 +410,18 @@
     };
 
     data.statements.forEach((statement, index) => {
-      const card = create("article", `statement-card statement-card--${index === 0 ? "source" : "usage"}`);
-      const header = create("div", "statement-card__header");
-      header.append(create("h3", "", statement.title));
-      if (statement.description) header.append(create("p", "statement-card__desc", statement.description));
-      card.append(header);
+      const statementType = statement.type || (index === 0 ? "source" : "usage");
+      const card = create("article", `statement-card statement-card--${statementType}`);
+      const isPrimaryUsage = statementType === "usage" && data.statements.length === 1;
+      const sectionDescription = byId("statement-description");
+      if (isPrimaryUsage && sectionDescription) {
+        sectionDescription.textContent = statement.description || "";
+      } else {
+        const header = create("div", "statement-card__header");
+        header.append(create("h3", "", statement.title));
+        if (statement.description) header.append(create("p", "statement-card__desc", statement.description));
+        card.append(header);
+      }
 
       const content = create("div", "statement-card__content");
       statement.items?.forEach((item) => content.append(renderStatementItem(item)));

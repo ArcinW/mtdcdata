@@ -1,30 +1,41 @@
 window.reportData = {
   restaurant: {
-    name: "海底捞·臻选店",
-    collectionDate: "2025年10月20日",
-    collectionArea: "710.8㎡",
-    privateRoomCount: "9间",
-    maxCapacity: "8-10人",
+    name: "杏花堂晋商私房菜（朝林广场店）",
+    collectionDate: "2026年7月7日",
+    collectionArea: "1146.2㎡",
+    privateRoomCount: "12",
+    maxCapacity: "12-14人",
     vrUrl: "https://realsee.cn/PjVQpJaX"
   },
   topMetrics: [
-    { label: "采集日期", value: "2025年10月20日" },
-    { label: "采集面积", value: "710.8㎡" },
-    { label: "包间总数", value: "9间" },
-    { label: "最大包间容纳人数", value: "8-10人" }
+    { label: "采集日期", value: "2026年7月7日" },
+    { label: "采集面积", value: "1146.2㎡" },
+    { label: "包间总数", value: "12" },
+    { label: "最大包间适用人数", value: "12-14人" }
   ],
+  environmentFacilityCount: "12项",
   featureServices: [
-    "可自带酒水",
-    "专属服务员",
-    "茶艺服务",
-    "分餐服务",
-    "室内可寄存物品"
+    "庭院景观",
+    "城市景观",
+    "高空景观",
+    "露台/户外座位",
+    "楼梯间/电梯",
+    "周边卖货区",
+    "明厨亮灶",
+    "洗手间",
+    "酒水吧台",
+    "收银台",
+    "吸烟区",
+    "无障碍设施",
+    "室内等位区",
+    "室外等位区",
+    "地下停车场",
+    "路边停车场"
   ],
   roomFacilities: [
     "独立卫生间",
     "包间窗景",
     "分菜吧台",
-    "麻将机",
     "衣帽间/衣架",
     "沙发",
     "茶几会客"
@@ -34,15 +45,15 @@ window.reportData = {
       group: "环境",
       items: [
         { name: "庭院景观", status: "available" },
-        { name: "城市景观", status: "pending" },
+        { name: "城市景观", status: "available" },
         { name: "自然水景", status: "pending" },
         { name: "山林景观", status: "pending" },
-        { name: "高空景观", status: "pending" },
+        { name: "高空景观", status: "available" },
         { name: "露台/户外座位", status: "available" },
         { name: "楼梯间/电梯", status: "available" },
-        { name: "明厨亮灶", status: "pending", note: "源页面标注：暂未提供" },
-        { name: "生鲜海鲜区", status: "available" },
-        { name: "周边卖货区", status: "pending", note: "源页面未提供" }
+        { name: "明厨亮灶", status: "available" },
+        { name: "生鲜海鲜区", status: "pending" },
+        { name: "周边卖货区", status: "available" }
       ]
     },
     {
@@ -52,7 +63,7 @@ window.reportData = {
         { name: "母婴室", status: "pending", note: "源页面标注：暂未提供" },
         { name: "酒水吧台", status: "available" },
         { name: "收银台", status: "available" },
-        { name: "无障碍设施", status: "pending" },
+        { name: "无障碍设施", status: "available" },
         { name: "儿童游乐区", status: "pending", note: "源页面标注：暂未提供" },
         { name: "吸烟区", status: "available" },
         { name: "舞台设施", status: "pending", note: "源页面标注：暂未提供" }
@@ -61,8 +72,8 @@ window.reportData = {
     {
       group: "排队",
       items: [
-        { name: "室内等位区", status: "pending", note: "源页面标注：餐厅等位区无" },
-        { name: "室外等位区", status: "pending" }
+        { name: "室内等位区", status: "available" },
+        { name: "室外等位区", status: "available" }
       ]
     },
     {
@@ -76,18 +87,18 @@ window.reportData = {
     {
       group: "服务",
       items: [
-        { name: "室外可携带宠物", status: "available" },
-        { name: "室内可寄存物品", status: "available" },
+        { name: "室外可携带宠物", status: "pending" },
+        { name: "室内可寄存物品", status: "pending" },
         { name: "室内可携带宠物", status: "pending" }
       ]
     }
   ],
   roomDetail: {
     summary: [
-      { label: "订金", value: "500元" },
-      { label: "收费情况", value: "服务费15%" },
-      { label: "可订时间", value: "周一至周日 10:30-22:00 / 17:00-21:00" },
-      { label: "专属服务", value: "专属服务员、茶艺服务、分餐服务" },
+      { label: "订金", value: "无需订金" },
+      { label: "收费情况", value: "10%服务费" },
+      { label: "可订时间", value: "周一至周日 10:00-14:00 / 17:00-21:00" },
+      { label: "专属服务", value: "专属服务员、分餐服务" },
       { label: "酒水服务", value: "可自带酒水" }
     ],
     rooms: [
@@ -169,7 +180,7 @@ window.reportData = {
     {
       title: "环境照片",
       type: "environment",
-      description: "高清细节照片集，记录环境装饰与设施",
+      description: "高清细节照片集，记录环境、装饰与设施；超高清HDR，分辨率5760x4320px",
       status: "30张",
       images: [
         "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/万里茶路_index168_2026-07-08_30.40cfef2a.jpg",
@@ -207,58 +218,43 @@ window.reportData = {
     {
       title: "营销海报",
       type: "poster",
-      description: "适用于商家运营传播的视觉设计海报",
+      description: "适用于商家运营传播的视觉设计海报，包括餐厅主海报和包间海报",
       status: "17张",
       images: [
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/主海报.9abf9777.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/万里茶路.d4c081e9.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/乔家大院.4260ac5e.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/大厅01.ac862ca2.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/大厅02.728f1abf.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/大掌柜.72f42ada.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/常家庄园.093d2943.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/得造花香.c3ba33b6.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/曹家三多堂.5e1f83b2.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/汇通天下.767a0626.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/王家大院.f34558d8.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/茗盏含韵.6b7ec699.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/行商欧亚.8eb3ca0d.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/锦筵传家.5e048a7d.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/门头.0b94b40f.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/陈醋流芳.56d06ad3.jpg",
-        "https://vr-image-4.realsee-cdn.cn/release/web/yasuo/露台.f187ce99.jpg"
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/主海报~1.453310b5.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/万里茶路~1.a10ef911.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/乔家大院~1.4bfce2c1.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/大厅01~1.f9d487e8.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/大厅02~1.a25932ae.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/大掌柜~1.dcddd8a7.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/常家庄园~1.b78fa187.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/得造花香~1.0ff53133.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/曹家三多堂~1.a903c43a.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/汇通天下~1.6edf24c5.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/王家大院~1.739cb383.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/茗盏含韵~1.3b5a5166.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/行商欧亚~1.6662c2de.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/锦筵传家~1.3603cdfe.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/陈醋流芳~1.7157e350.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/露台~1.9f998e74.jpg",
+        "https://vr-image-4.realsee-cdn.cn/release/web/yayasuo/门头~1.872b0dd8.jpg"
       ]
     },
     {
-      title: "平面图",
+      title: "餐厅结构图",
       type: "floorplan",
-      description: "餐厅平面布局与空间结构图，尺寸精确",
-      status: "1张",
-      images: ["https://vr-image-4.realsee-cdn.cn/release/web/平面图1.86875852.png"]
+      description: "餐厅平面布局图与三维模型图，尺寸精确，可在VR中快速查看布局信息",
+      images: [
+        "https://vr-image-4.realsee-cdn.cn/release/web/平面图1.86875852.png",
+        "https://vr-image-4.realsee-cdn.cn/release/web/model.f247c185.jpg"
+      ]
     }
   ],
   statements: [
     {
-      title: "数据来源",
-      description: "本报告数据来源于如视VR摄影师实地采集及VR空间数据理解技术解析生成。所有具体数据上传前均会由商家进行最终验证，报告图片仅作为参考依据。",
-      items: [
-        {
-          name: "采集服务确认单（一）",
-          image: "https://vr-image-4.realsee-cdn.cn/release/web/confirm1.3a2ca1a8.jpg"
-        },
-        {
-          name: "采集服务确认单（二）",
-          image: "https://vr-image-4.realsee-cdn.cn/release/web/confirm2.848c536b.jpg"
-        },
-        {
-          name: "空间数据理解技术示意",
-          image: "./assets/images/statement-recognition.png"
-        }
-      ]
-    },
-    {
+      type: "usage",
       title: "数据应用",
-      description: "用于商家信息展示和包间运营，包括基础信息、环境、包间、设施等信息。",
+      description: "用于美团、点评平台的商家信息展示和包间运营管理，应用位置包括基础信息、环境、包间、设施等模块。",
       groups: [
         {
           title: "POI页",
