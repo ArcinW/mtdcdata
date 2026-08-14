@@ -254,6 +254,90 @@
 
   const renderAssets = () => {
     const target = byId("asset-list");
+    const renderAssetImage = (asset, image, index) => {
+      const media = create("figure", "more-data-item");
+      const img = create("img", "more-data-item__image");
+      img.src = image;
+      img.alt = `${asset.title}${index + 1}`;
+      media.append(img);
+      return media;
+    };
+
+    const renderAssetPager = (asset, images, desktopPageSize, mobilePageSize) => {
+      const pager = create("div", "more-data-pager");
+      const track = create("div", "more-data-page-track");
+      const controls = create("div", "more-data-pager__controls");
+      const prev = create("button", "more-data-pager__button more-data-pager__button--prev");
+      const next = create("button", "more-data-pager__button more-data-pager__button--next");
+      const status = create("span", "more-data-pager__status");
+      const desktopQuery = window.matchMedia("(min-width: 720px)");
+      let pageCount = 0;
+      let currentPageIndex = 0;
+
+      prev.type = "button";
+      next.type = "button";
+      prev.setAttribute("aria-label", "查看上一页环境照片");
+      next.setAttribute("aria-label", "查看下一页环境照片");
+
+      const updateControls = () => {
+        const pages = Array.from(track.children);
+        const trackLeft = track.getBoundingClientRect().left;
+        const nearestPage = pages.reduce((nearest, pageElement, index) => {
+          const distance = Math.abs(pageElement.getBoundingClientRect().left - trackLeft);
+          return distance < nearest.distance ? { index, distance } : nearest;
+        }, { index: currentPageIndex, distance: Number.POSITIVE_INFINITY });
+        currentPageIndex = nearestPage.index;
+        const currentPage = Math.min(currentPageIndex + 1, pageCount);
+        status.textContent = `${currentPage} / ${pageCount}`;
+        prev.disabled = currentPage <= 1;
+        next.disabled = currentPage >= pageCount;
+      };
+
+      const renderPages = () => {
+        const pageSize = desktopQuery.matches ? desktopPageSize : mobilePageSize;
+        pageCount = Math.ceil(images.length / pageSize);
+        currentPageIndex = Math.min(currentPageIndex, pageCount - 1);
+        track.innerHTML = "";
+        for (let index = 0; index < images.length; index += pageSize) {
+          const pageIndex = index / pageSize;
+          const page = create("div", "more-data-page");
+          page.setAttribute("aria-label", `${asset.title}第${pageIndex + 1}页`);
+          images.slice(index, index + pageSize).forEach((image, imageIndex) => {
+            page.append(renderAssetImage(asset, image, index + imageIndex));
+          });
+          track.append(page);
+        }
+        requestAnimationFrame(() => {
+          const pageElement = track.children[currentPageIndex];
+          if (pageElement) track.scrollLeft = pageElement.offsetLeft - track.offsetLeft;
+          updateControls();
+        });
+      };
+
+      const showPage = (direction) => {
+        currentPageIndex = Math.min(Math.max(currentPageIndex + direction, 0), pageCount - 1);
+        const pageElement = track.children[currentPageIndex];
+        if (pageElement) {
+          track.scrollTo({ left: pageElement.offsetLeft - track.offsetLeft, behavior: "smooth" });
+        }
+        updateControls();
+      };
+
+      prev.addEventListener("click", () => showPage(-1));
+      next.addEventListener("click", () => showPage(1));
+      track.addEventListener("scroll", updateControls, { passive: true });
+      if (desktopQuery.addEventListener) {
+        desktopQuery.addEventListener("change", renderPages);
+      } else {
+        desktopQuery.addListener(renderPages);
+      }
+
+      controls.append(prev, status, next);
+      pager.append(track, controls);
+      renderPages();
+      return pager;
+    };
+
     data.assets.forEach((asset) => {
       const card = create("article", `more-data-block more-data-block--${asset.type || "default"}`);
       const body = create("div", "more-data-block__header");
@@ -270,13 +354,18 @@
 
       const gallery = create("div", `more-data-gallery more-data-gallery--${asset.type || "default"}`);
       const images = asset.images || (asset.image ? [asset.image] : []);
+      if (asset.type === "environment") {
+        card.append(renderAssetPager(asset, images, 8, 2));
+        target.append(card);
+        return;
+      }
+      if (asset.type === "poster") {
+        card.append(renderAssetPager(asset, images, 4, 1));
+        target.append(card);
+        return;
+      }
       images.forEach((image, index) => {
-        const media = create("figure", "more-data-item");
-        const img = create("img", "more-data-item__image");
-        img.src = image;
-        img.alt = `${asset.title}${index + 1}`;
-        media.append(img);
-        gallery.append(media);
+        gallery.append(renderAssetImage(asset, image, index));
       });
       card.append(gallery);
       target.append(card);
