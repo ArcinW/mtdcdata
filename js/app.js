@@ -82,40 +82,50 @@
     });
     target.append(facts);
 
-    const layout = create("div", "comparison-list");
+    const visualOverview = create("div", "basic-visual-overview");
+    data.basicInfo
+      .filter((category) => ["环境", "设施"].includes(category.group))
+      .forEach((category) => {
+        const section = create("section", "basic-visual-section");
+        section.append(create("h3", "", category.group));
+        const grid = create("div", "basic-visual-grid");
+        category.items
+          .filter((item) => item.status === "available")
+          .forEach((item) => {
+            grid.append(renderFacilityChip(item, category.group));
+          });
+        section.append(grid);
+        visualOverview.append(section);
+      });
+    target.append(visualOverview);
+
+    const compactList = create("section", "basic-check-list");
+    compactList.append(create("h3", "basic-check-list__title", "信息明细"));
     data.basicInfo.forEach((category) => {
-      const row = create("article", "comparison-row");
-      row.append(create("h3", "", category.group));
-      const columns = create("div", "comparison-columns");
-
+      const group = create("section", "basic-check-group");
+      group.append(create("h3", "basic-check-group__title", category.group));
+      const columns = create("div", "basic-check-columns");
       [
-        { title: "已提供", status: "available" },
-        { title: "暂未提供", status: "pending" }
-      ].forEach((group) => {
-        const items = category.items.filter((item) => item.status === group.status);
-        if (!items.length) return;
-
-        const cell = create("div", `comparison-cell comparison-cell--${group.status}`);
-        cell.append(create("h4", "", group.title));
-        const list = create("div", "facility-list");
-        const isVisualList = group.status === "available" && ["环境", "设施"].includes(category.group);
-        if (isVisualList) list.classList.add("facility-list--visual");
-
-        items.forEach((item) => {
-          list.append(renderFacilityChip(item, category.group));
-        });
-
-        cell.append(list);
+        { status: "available", icon: "✓" },
+        { status: "pending", icon: "×" }
+      ].forEach((column) => {
+        const cell = create("div", `basic-check-column basic-check-column--${column.status}`);
+        const tags = create("div", "basic-check-tags");
+        category.items
+          .filter((item) => item.status === column.status)
+          .forEach((item) => {
+            const tag = create("span", `basic-check-tag basic-check-tag--${item.status}`);
+            tag.append(create("span", "basic-check-tag__icon", column.icon));
+            tag.append(create("span", "", item.name));
+            tags.append(tag);
+          });
+        cell.append(tags);
         columns.append(cell);
       });
-
-      if (columns.querySelector(".facility-chip--visual")) {
-        columns.classList.add("comparison-columns--visual");
-      }
-      row.append(columns);
-      layout.append(row);
+      group.append(columns);
+      compactList.append(group);
     });
-    target.append(layout);
+    target.append(compactList);
   };
 
   const renderFacilityChip = (item, categoryName) => {
@@ -245,25 +255,24 @@
   const renderAssets = () => {
     const target = byId("asset-list");
     data.assets.forEach((asset) => {
-      const card = create("article", "asset-card asset-card--gallery");
-      if (asset.type) card.classList.add(`asset-card--${asset.type}`);
-      const body = create("div", "asset-card__body");
-      const titleBlock = create("div", "asset-card__title");
+      const card = create("article", `more-data-block more-data-block--${asset.type || "default"}`);
+      const body = create("div", "more-data-block__header");
+      const titleBlock = create("div", "more-data-block__title");
       titleBlock.append(create("h3", "", asset.title));
       if (asset.description) titleBlock.append(create("p", "", asset.description));
       const statusParts = asset.status.match(/^(\d+)(.*)$/);
-      const count = create("span", "asset-card__count");
+      const count = create("span", "more-data-block__count");
       count.append(create("strong", "", statusParts ? statusParts[1] : asset.status));
       if (statusParts?.[2]) count.append(create("span", "", statusParts[2]));
       body.append(titleBlock);
       body.append(count);
       card.append(body);
 
-      const gallery = create("div", "asset-card__gallery");
+      const gallery = create("div", `more-data-gallery more-data-gallery--${asset.type || "default"}`);
       const images = asset.images || (asset.image ? [asset.image] : []);
       images.forEach((image, index) => {
-        const media = create("figure", "asset-card__media");
-        const img = create("img", "asset-card__image");
+        const media = create("figure", "more-data-item");
+        const img = create("img", "more-data-item__image");
         img.src = image;
         img.alt = `${asset.title}${index + 1}`;
         media.append(img);
